@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+set -xue ;
+git log --pretty format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --graph --abbrev-commit --branches "$@" ;

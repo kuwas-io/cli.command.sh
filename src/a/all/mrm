@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -xue ;
+MATCH="com.apple.TimeMachine." ;
+for SNAME in $( sudo tmutil listlocalsnapshots / ) ; do
+  DNAME=${SNAME/$MATCH/} ;
+  sudo tmutil deletelocalsnapshots $DNAME ;
+done ;

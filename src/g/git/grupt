@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+set -xue ;
+git remote update --prune ;
+git tag -l | xargs git tag -d ;
+git fetch --tags ; echo "" ;
+git show-ref ; echo "" ;
+git status ;
+"$@" ;

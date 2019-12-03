@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+set -xue ;
+kubectl --kubeconfig "$1" "${@:2}" --all-namespaces ;

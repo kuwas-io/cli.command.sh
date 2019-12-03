@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -xue ;
+gcloud kms \
+  "$1" \
+  --project "$2" \
+  --location "$3" \
+  --keyring "$4" \
+  --key "$5" \
+  --ciphertext-file "$6" \
+  --plaintext-file "$7" \
+  "${@:8}" \
+  ;

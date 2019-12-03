@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -xue ;
+if ip address > "/dev/null" 2>&1 ; then
+  sudo ip link set "$1" up "${@:2}" ;
+elif ifconfig > "/dev/null" 2>&1 ; then
+  sudo ifconfig "$1" up "${@:2}" ;
+fi ;
