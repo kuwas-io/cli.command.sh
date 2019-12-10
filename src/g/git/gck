@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+set -xue ;
+git fsck --verbose ;
+git gc --prune "now" --aggressive "$@" ;

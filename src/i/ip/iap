@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -xue ;
+if ip address > "/dev/null" 2>&1 ; then
+  ip address show "$1" | grep "inet " | awk '{ print $2 }' | xargs echo "${@:2}" ;
+elif ifconfig > "/dev/null" 2>&1 ; then
+  ifconfig "$1" | grep "inet " | awk -F '[: ]+' '{ print $4 }' | xargs echo "${@:2}" ;
+fi ;

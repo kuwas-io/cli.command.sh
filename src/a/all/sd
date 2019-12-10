@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+set -xue ;
+EKEYS="$1" ;
+PATHS="$2" ;
+
+ARCHIVE="${PATHS}.tgz" ;
+ARCHIVE_e="${PATHS}.tgz.aes" ;
+PASSW="${PATHS}.pw" ;
+PASSW_e="${PATHS}.pw.aes" ;
+
+# command #
+openssl rsautl -decrypt -inkey "${EKEYS}" -in "${PASSW_e}" -out "${PASSW}" ;
+openssl enc -aes256 -salt -d -k "file:${PASSW}" -in "${ARCHIVE_e}" -out "${ARCHIVE}" ;
+tar -xzvf "${ARCHIVE}" ;
+
+# clean #
+rm -rf "${ARCHIVE}" ;
+rm -rf "${PASSW}" ;

@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -xue ;
+for DPATH in ./*/ ; do
+  cd ${DPATH} ;
+  echo "Directory : ${DPATH%*/}" ;
+  git remote update --prune ;
+  git checkout master ;
+  git reset --hard origin/master ;
+  "$@" ;
+  echo "" ;
+  cd .. ;
+done ;

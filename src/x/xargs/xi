@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+set -xue ;
+xargs -I {} "$1" {} "${@:2}" ;

@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+set -xue ;
+for DPATH in ./*/ ; do
+  cd ${DPATH} ;
+  echo "Directory : ${DPATH%*/}" ;
+  "$@" ;
+  echo "" ;
+  cd .. ;
+done ;

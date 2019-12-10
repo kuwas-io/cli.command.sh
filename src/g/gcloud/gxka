@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+set -xue ;
+for FPATH in $( find $1 -type f ) ; do
+  echo "Files : ${FPATH%*/}" ;
+  gcloud kms \
+    "$2" \
+    --project "$3" \
+    --location "$4" \
+    --keyring "$5" \
+    --key "$6" \
+    --ciphertext-file "${FPATH}" \
+    --plaintext-file "${FPATH}" \
+    "${@:7}" \
+    ;
+  echo "" ;
+done ;

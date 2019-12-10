@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -xue ;
+if ip address > "/dev/null" 2>&1 ; then
+  ip address "$@" ;
+elif ifconfig > "/dev/null" 2>&1 ; then
+  ifconfig "$@" ;
+fi ;

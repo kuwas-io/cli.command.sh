@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+set -xue ;
+chrome-browser --try-supported-channel-layouts --force-wave-audio "$@" > "/dev/null" 2>&1 & ;

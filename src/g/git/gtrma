@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+set -xue ;
+git tag -l | xargs -I {} git push origin :{} ;
+"$@" ;
