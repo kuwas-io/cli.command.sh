@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+set -xue ;
+sudo rsync \
+  \
+  --archive \
+  --extended-attributes \
+  --perms \
+  --recursive \
+  \
+  --devices \
+  --executability \
+  --group \
+  --hard-links \
+  --links \
+  --numeric-ids \
+  --one-file-system \
+  --owner \
+  --sparse \
+  --times \
+  --whole-file \
+  \
+  --human-readable \
+  --itemize-changes \
+  --progress \
+  --stats \
+  \
+  "$1" \
+  "$2" \
+  ;
