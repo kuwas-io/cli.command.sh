@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -ue ;
+# set -xue ;
+COMMAND=$( gcloud --format "value( projectId )" projects list ) ;
+for PROJECT in $COMMAND ; do
+  echo "Project : ${PROJECT}" ;
+  gcloud \
+    --project "${PROJECT}" \
+    "$@" \
+    ;
+  echo "" ;
+done ;
