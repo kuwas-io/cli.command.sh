@@ -4,8 +4,8 @@ for DPATH in ./*/ ; do
   cd ${DPATH} ;
   echo "Directory : ${DPATH%*/}" ;
   git remote update --prune ;
-  git checkout master ;
-  git reset --hard origin/master ;
+  git checkout main ;
+  git reset --hard origin/main ;
   "$@" ;
   echo "" ;
   cd .. ;
