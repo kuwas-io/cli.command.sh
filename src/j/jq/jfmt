@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+set -xue ;
+for FPATH in $( find $1 -type f ) ; do
+  TPATH="${FPATH}.tmp" ;
+  mv "${FPATH}" "${TPATH}" ;
+  jq "${@:2}" < "${TPATH}" > "${FPATH}" ;
+  rm "${TPATH}" ;
+  echo "" ;
+done ;
